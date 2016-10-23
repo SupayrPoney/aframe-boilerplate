@@ -5,15 +5,23 @@
     <title>Hello, World! - A-Frame</title>
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
   </head>
   <body>
+  <script type="text/javascript">
+    var AFRAME = require("aframe-core");
+    var draw = require("aframe-draw-component").component;
+    var textwrap = require("aframe-textwrap-component").component;
+    AFRAME.registerComponent("draw", draw);
+    AFRAME.registerComponent("textwrap", textwrap);
+  </script>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-entity text="text: COUCOU FLORENTIN"></a-entity>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
+      <!-- <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> -->
+      <!-- <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
+      <a-entity id="box" geometry="primitive: sphere" position="0 3 -5" draw="background: #EF2D5E" textwrap="textAlign: center; x: 128; y: 128; text: Coucou Florentin!"></a-entity>
+          <!-- <a-entity bmfont-text="text: Hello world"></a-entity> -->
+      <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>
